@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubSentry | Subscription Auditor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SubSentry</h1>
+            <p class="tagline">Stop the budget leak.</p>
+        </header>
+
+        <div class="dashboard">
+            <p>Total Monthly Burn</p>
+            <h2 id="total-burn">$0.00</h2>
+        </div>
+
+        <form id="sub-form">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Service (e.g. Adobe)" required>
+            </div>
+            <div class="input-row">
+                <input type="number" id="cost" placeholder="Price" step="0.01" required>
+                <select id="cycle">
+                    <option value="1">Monthly</option>
+                    <option value="12">Yearly</option>
+                </select>
+            </div>
+            <button type="submit" id="add-btn">Add to Auditor</button>
+        </form>
+
+        <div class="list-header">
+            <h3>Active Subscriptions</h3>
+        </div>
+        <ul id="sub-list">
+            <!-- Items will appear here -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
