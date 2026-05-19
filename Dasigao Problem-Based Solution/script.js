@@ -57,11 +57,18 @@ function toggleStatus(id) {
     updateApp();
 }
 
+function renderLogs() {
+    loglist.innerHTML = '';
+    logs.forEach(log => {
+        const li = document.createElement('li');
+        li.innerHTML = '<span class="log-time">[${log.time}]</span>${log.message}';
+        logList.appendChild(li);
+    });
+}
+
 function updateApp() {
-    // 1. Clear current list
     subList.innerHTML = '';
     
-    // 2. Calculate Total Burn
     const total = subscriptions.reduce((sum, sub) => sum + sub.monthlyEquivalent, 0);
     totalDisplay.innerText = `$${total.toFixed(2)}`;
 
