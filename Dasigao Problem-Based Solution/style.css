@@ -108,6 +108,11 @@ button#add-btn {
     display: inline-block;
 }
 
+.action-btns {
+    display: flex;
+    gap: 5px;
+}
+
 .cancel-btn {
     background: #ffeaa7;
     border: none;
