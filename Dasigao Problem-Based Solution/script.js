@@ -5,6 +5,12 @@ const subList = document.getElementById('sub-list');
 const totalDisplay = document.getElementById('total-burn');
 const loglist = document.getElementById('activity-log');
 
+function addlog(message) {
+    const time = new Date().toLocateTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+    loglist.unshift({ time, message });
+    renderLogs();
+}
+
 subForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
