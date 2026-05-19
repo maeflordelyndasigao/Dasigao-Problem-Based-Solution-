@@ -92,6 +92,11 @@ button#add-btn {
     transition: opacity 0.3s ease;
 }
 
+.sub-item.paused {
+    border-left-color: var(--text-light);
+    opacity: 0.6;
+}
+
 .cancel-btn {
     background: #ffeaa7;
     border: none;
