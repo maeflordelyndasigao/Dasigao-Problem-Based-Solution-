@@ -37,6 +37,10 @@ subForm.addEventListener('submit', (e) => {
 });
 
 function deleteSub(id) {
+    const target = subscriptions.find(sub => sub.id ===id);
+    if (target) {
+        addLog('Canceled subscriptions: ${target.named}');
+    }
     subscriptions = subscriptions.filter(sub => sub.id !== id);
     updateApp();
 }
