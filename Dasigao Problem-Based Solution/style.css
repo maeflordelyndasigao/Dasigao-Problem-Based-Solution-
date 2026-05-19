@@ -97,6 +97,17 @@ button#add-btn {
     opacity: 0.6;
 }
 
+.badge {
+    background: #e1f5fe;
+    color: #0288d1;
+    font-size: 0.65rem;
+    padding:2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 5px;
+    display: inline-block;
+}
+
 .cancel-btn {
     background: #ffeaa7;
     border: none;
