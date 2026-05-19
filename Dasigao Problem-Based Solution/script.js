@@ -3,6 +3,7 @@ let subscriptions = [];
 const subForm = document.getElementById('sub-form');
 const subList = document.getElementById('sub-list');
 const totalDisplay = document.getElementById('total-burn');
+const loglist = document.getElementById('activity-log');
 
 subForm.addEventListener('submit', (e) => {
     e.preventDefault();
