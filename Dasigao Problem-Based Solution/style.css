@@ -130,7 +130,7 @@ button#add-btn {
 }
 
 .cancel-btn {
-    background: #ffeaa7;
+    background: #ffcbca;
     border: none;
     color: #d63031;
     padding: 5px 10px;
@@ -139,3 +139,5 @@ button#add-btn {
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+
