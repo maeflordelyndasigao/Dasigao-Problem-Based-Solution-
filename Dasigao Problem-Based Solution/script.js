@@ -24,7 +24,10 @@ subForm.addEventListener('submit', (e) => {
     const newSub = {
         id: Date.now(),
         name,
+        cost,
+        cycle,
         monthlyEquivalent
+        status: 'active'
     };
 
     subscriptions.push(newSub);
