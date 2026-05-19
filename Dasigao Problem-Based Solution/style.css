@@ -155,3 +155,8 @@ button#add-btn {
     font-size: 0.85rem;
     color: #2d3436;
 }
+
+#activity-log li {
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.01);
+}
