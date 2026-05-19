@@ -31,6 +31,7 @@ subForm.addEventListener('submit', (e) => {
     };
 
     subscriptions.push(newSub);
+    addLog('Added subscription: ${name} ($${monthlyEquivalent.toFixed(2)}/mo)');
     updateApp();
     subForm.reset();
 });
