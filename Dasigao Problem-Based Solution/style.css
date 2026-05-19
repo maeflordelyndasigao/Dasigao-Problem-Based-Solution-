@@ -124,6 +124,11 @@ button#add-btn {
     font-weight: bold;
 }
 
+.pause-btn.active-state {
+    background: #ffeaa7;
+    color: #d35400;
+}
+
 .cancel-btn {
     background: #ffeaa7;
     border: none;
