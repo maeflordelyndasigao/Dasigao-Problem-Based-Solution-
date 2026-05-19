@@ -45,6 +45,18 @@ function deleteSub(id) {
     updateApp();
 }
 
+function toggleStatus(id) {
+    subscriptions = subscriptions.map(sub => {
+        if (sub.id === id) {
+            const nextStatus = sub.status === 'active' ? 'paused': 'active';
+            addLog('${nextStatus === 'paused' ? 'Paused' : 'Resumed'} subscription: ${sub.name}');
+            return { ...sub, status: nextStatus };
+        }
+        return sub;
+    });
+    updateApp();
+}
+
 function updateApp() {
     // 1. Clear current list
     subList.innerHTML = '';
