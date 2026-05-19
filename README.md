@@ -1,4 +1,4 @@
-**💸PROBLEM BASED sOLURION💰**
+**💸PROBLEM BASED SOLUTION💰**
 
 #dasigao-problem-based solution
 
