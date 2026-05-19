@@ -1,4 +1,5 @@
 let subscriptions = [];
+let logs = [];
 
 const subForm = document.getElementById('sub-form');
 const subList = document.getElementById('sub-list');
@@ -7,7 +8,7 @@ const loglist = document.getElementById('activity-log');
 
 function addlog(message) {
     const time = new Date().toLocateTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'});
-    loglist.unshift({ time, message });
+    logs.unshift({ time, message });
     renderLogs();
 }
 
@@ -18,7 +19,6 @@ subForm.addEventListener('submit', (e) => {
     const cost = parseFloat(document.getElementById('cost').value);
     const cycle = parseInt(document.getElementById('cycle').value);
 
-    // NORMALIZATION LOGIC
     const monthlyEquivalent = cost / cycle;
 
     const newSub = {
@@ -45,6 +45,7 @@ function deleteSub(id) {
     updateApp();
 }
 
+
 function toggleStatus(id) {
     subscriptions = subscriptions.map(sub => {
         if (sub.id === id) {
@@ -69,16 +70,23 @@ function renderLogs() {
 function updateApp() {
     subList.innerHTML = '';
     
-    const total = subscriptions.reduce((sum, sub) => sum + sub.monthlyEquivalent, 0);
+    const total = subscriptions
+        .filter(sub => sub.status === 'active')
+        .reduce((sum, sub) => sum + sub.monthlyEquivalent, 0);
+
     totalDisplay.innerText = `$${total.toFixed(2)}`;
 
-    // 3. Render List
     subscriptions.forEach(sub => {
         const li = document.createElement('li');
-        li.className = 'sub-item';
+        li.className = 'sub-item ${sub.status === 'paused' ? 'paused' : ''}';
+        
+        const yearlyTag = sub.cycle === 12 ? '<span class="badge">YEARLY</span>' : '';
+        const toggleBtnText = sub.status === 'active' ? 'PAUSE' : 'CONTINUE';
+        const toggleBtnClass = sub.status === 'paused' ? 'pause-btn active-state' : 'pause-btn';
+        
         li.innerHTML = `
             <div>
-                <strong>${sub.name}</strong><br>
+                <strong>${sub.name}</strong> ${yearlyTag}<br>
                 <small>$${sub.monthlyEquivalent.toFixed(2)}/mo</small>
             </div>
             <button class="cancel-btn" onclick="deleteSub(${sub.id})">CANCEL</button>
