@@ -113,6 +113,17 @@ button#add-btn {
     gap: 5px;
 }
 
+.pause.btn {
+    background: #dfe6e9;
+    border: none;
+    color: var(--text-main);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
 .cancel-btn {
     background: #ffeaa7;
     border: none;
