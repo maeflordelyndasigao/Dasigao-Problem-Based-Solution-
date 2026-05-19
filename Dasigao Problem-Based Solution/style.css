@@ -140,4 +140,18 @@ button#add-btn {
     font-weight: bold;
 }
 
+.log-section {
+    margin-top: 40px;
+    background: rgba(250, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+}
 
+#activity-log {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    color: #2d3436;
+}
