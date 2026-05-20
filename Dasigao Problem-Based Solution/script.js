@@ -6,10 +6,9 @@ const subList = document.getElementById('sub-list');
 const totalDisplay = document.getElementById('total-burn');
 const logList = document.getElementById('activity-log');
 
-// Helper to push actions to tracking window
 function addLog(message) {
     const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    logs.unshift({ time, message }); // Puts latest event at the top
+    logs.unshift({ time, message }); 
     renderLogs();
 }
 
@@ -26,9 +25,9 @@ subForm.addEventListener('submit', (e) => {
         id: Date.now(),
         name,
         cost,
-        cycle, // Keep track if 1 (Monthly) or 12 (Yearly)
+        cycle, 
         monthlyEquivalent,
-        status: 'active' // New: Can be 'active' or 'paused'
+        status: 'active' 
     };
 
     subscriptions.push(newSub);
@@ -46,7 +45,6 @@ function deleteSub(id) {
     updateApp();
 }
 
-// NEW: Handles shifting between active and paused status
 function toggleStatus(id) {
     subscriptions = subscriptions.map(sub => {
         if (sub.id === id) {
@@ -71,7 +69,6 @@ function renderLogs() {
 function updateApp() {
     subList.innerHTML = '';
     
-    // NEW CALCULATIONS: Only sum subscriptions that are 'active'
     const total = subscriptions
         .filter(sub => sub.status === 'active')
         .reduce((sum, sub) => sum + sub.monthlyEquivalent, 0);
@@ -80,10 +77,8 @@ function updateApp() {
 
     subscriptions.forEach(sub => {
         const li = document.createElement('li');
-        // Add specific modifier class if item is paused
         li.className = `sub-item ${sub.status === 'paused' ? 'paused' : ''}`;
         
-        // Conditional text to render Yearly tags
         const yearlyTag = sub.cycle === 12 ? '<span class="badge">YEARLY</span>' : '';
         const toggleBtnText = sub.status === 'active' ? 'PAUSE' : 'CONTINUE';
         const toggleBtnClass = sub.status === 'paused' ? 'pause-btn active-state' : 'pause-btn';

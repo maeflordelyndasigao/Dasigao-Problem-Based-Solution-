@@ -92,13 +92,11 @@ button#add-btn {
     transition: opacity 0.3s ease;
 }
 
-/* NEW: Style for paused subscriptions visually lowering prominence */
 .sub-item.paused {
     border-left-color: var(--text-light);
     opacity: 0.6;
 }
 
-/* NEW: Badges for Yearly indicator */
 .badge {
     background: #e1f5fe;
     color: #0288d1;
